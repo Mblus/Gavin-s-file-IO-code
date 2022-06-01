@@ -1,0 +1,387 @@
+#gavin Haroche 5/31/22
+#File inputs and outputs.
+#Version 1.1
+#This file includes: Counting data, taking percentages from data, using HTML outputs to highlight data, finding data based off of 3 inputs.
+# adding to the file, deleting and overwriting based off of finding a line from 3 inputs.
+
+
+
+
+import time #importing time.
+
+
+
+def chocie1(filename):
+    file_in = open(filename)
+    print("Do you want to count first names (say 0)")
+    time.sleep(0.3)
+    print("middle names (1)")
+    time.sleep(0.3)
+    print("last names (2)")
+    time.sleep(0.3)
+    print("grade (3)")
+    time.sleep(0.3)
+    print("gender (4)")
+    time.sleep(0.3)
+    print("advisor last name (5)")
+    time.sleep(0.3)
+    print("advisor first name (6)")
+    time.sleep(0.3)
+    print("town (7)")
+    time.sleep(0.3)
+    print("state (8)")
+    time.sleep(0.3)
+    print("zip code (9)")
+    no1choice = input("") #input for the subchoice of which row they want to search in.
+    no1choice = no1choice.replace(" ", "") #removing spaces from the input because spaces will cause errirs,
+    counter = 0 #counter for counting numbers.
+
+    subno1choice = input("Enter the piece of data you wish to check\n") #input of what they what to count.
+    subno1choice = subno1choice.lower() #uppercased inputs will cause errors.
+    subno1choice = subno1choice.replace(" ", "")
+    try: #if an error pops up, that means there was a bad input
+        for line in file_in: #running through the file
+            try:#if someone enters a bad input, there will be an error.
+
+                list_of_words = line.split(",")
+                if list_of_words[int(no1choice)] == subno1choice:
+                    counter = counter + 1
+            except:
+                continue
+
+
+        file_in.close() #close the file.
+
+        if no1choice == "0":#all of the conclusive print statements.
+            print("there are " + str(counter) + " people named " + str(subno1choice) + " in the list")
+        elif no1choice == "1":
+            print("there are " + str(counter) + " people with the middle name " + str(subno1choice))
+        elif no1choice == "2":
+            print("there are " + str(counter) + " people with the last name " + str(subno1choice))
+        elif no1choice == "3":
+            print("there are " + str(counter) + " in the grade of " + str(subno1choice))
+        elif no1choice == "4":
+            print("there are " + str(counter) + " people with the gender of " + str(subno1choice))
+        elif no1choice == "5":
+            print("there are " + str(counter) + " people with the advisor last name of " + str(subno1choice))
+        elif no1choice == "6":
+            print("there are " + str(counter) + " people with the advisor first name of " + str(subno1choice))
+        elif no1choice == "7":
+            print("there are " + str(counter) + " in the town of " + str(subno1choice))
+        elif no1choice == "8":
+            print("there are " + str(counter) + " in the state of " + str(subno1choice))
+        elif no1choice == "9":
+            print("there are " + str(counter) + " with the zipcode of " + str(subno1choice))
+        else:
+            print("you must have put in a bad input")
+        time.sleep(1)
+    except:
+        print("looks like you entered a bad input, please retry.")
+        time.sleep(1)
+
+    return
+def choice2(filename):
+    file_in = open(filename) #opening file.
+    print("Do you want to get the percent of first names (say 0)")
+    time.sleep(0.3)
+    print("middle names (1)")
+    time.sleep(0.3)
+    print("last names (2)")
+    time.sleep(0.3)
+    print("grade (3)")
+    time.sleep(0.3)
+    print("gender (4)")
+    time.sleep(0.3)
+    print("advisor last name (5)")
+    time.sleep(0.3)
+    print("advisor first name (6)")
+    time.sleep(0.3)
+    print("town (7)")
+    time.sleep(0.3)
+    print("state (8)")
+    time.sleep(0.3)
+    print("zip code (9)")
+    time.sleep(0.3)
+    try:
+        no1choice = int(input(""))#input and checking if it is a propper input
+    except:
+        print("you entered letters intead of a didget") #result from unpropper input.
+        time.sleep(2)
+        return
+    if no1choice > 9: #checking for an input number that does not corelate to my functions.
+        print("you selected a choice that doesnt exist")
+        time.sleep(2)
+        return
+    subno1choice = input("Enter the name you wish to check the average of\n")#recieving the input that will serve as the basis for the counter.
+    subno1choice = subno1choice.lower()
+    lengthcounter = 0 #length of the list
+    counter = 0 #number of the subno1choice in the list.
+    for line in file_in: #reading through the file.
+        try:
+            list_of_words = line.split(",")
+            lengthcounter = lengthcounter + 1
+            if list_of_words[no1choice] == subno1choice: #counting matches
+                counter = counter + 1
+        except:
+            continue
+    percent = counter / lengthcounter
+    percent = percent * 100#getting the percent of matches in the file.
+    if no1choice == 0:
+        print(str(percent) + " percent of students have " + subno1choice + " as their first name")
+        time.sleep(2)
+    if no1choice == 1:
+        print(str(percent) + " percent of students have " + subno1choice + " as their middle name")
+        time.sleep(2)
+    if no1choice == 2:
+        print(str(percent) + " percent of students have " + subno1choice + " as their last name")
+        time.sleep(2)
+    if no1choice == 3:
+        print(str(percent) + " percent of students are in the " + subno1choice + "th grade")
+        time.sleep(2)
+    if no1choice == 4:
+        print(str(percent) + " percent of students have " + subno1choice + " as their gender.")
+        time.sleep(2)
+    if no1choice == 5:
+        print(str(percent) + " percent of students advisors have " + subno1choice + " as their last name")
+        time.sleep(2)
+    if no1choice == 6:
+        print(str(percent) + " percent of students advisors have " + subno1choice + " as their first name")
+        time.sleep(2)
+    if no1choice == 7:
+        print(str(percent) + " percent of students live in the town of " + subno1choice)
+        time.sleep(2)
+    if no1choice == 8:
+        print(str(percent) + " percent of students live in the state of " + subno1choice)
+        time.sleep(2)
+    if no1choice == 9:
+        print(str(percent) + " percent of students have the zipcode of " + subno1choice)
+        time.sleep(2)
+#printing answers based off of inputs.
+
+
+
+    file_in.close()
+    return
+def choice3(filename):
+    file_in = open(filename)
+    subno1choice = input("What do you want to search").lower() #asking what one wants to search.
+    updatedlist = "" #empty string for adding html text to
+    counter = 1 #setting variable for line breaks.
+    for line in file_in: #running through the list
+        list_of_words = line.split(",") #splitting the lines across the list.
+        for word in list_of_words:
+            if word == subno1choice:
+                if counter == 10:#if match, add the line with the color
+                    x = "<div><span style='color:red'>" + subno1choice + "</span>" + "<br>"
+                    counter = 0 #reset the counter for spacing reasons
+                else:
+                    x = "<div><span style='color:red'>" + subno1choice + "</span>"
+                counter = counter + 1
+                updatedlist = updatedlist + x + " "
+
+
+            else:
+                if counter == 10: #if not match, print the line regularly
+                    updatedlist = updatedlist + word + " " + "<br>"
+                    counter = 0
+                else:
+                    updatedlist = updatedlist + word + " "
+                    counter = counter + 1
+
+    import webbrowser
+
+    f = open("index.html", "w")#opening tempfile.
+
+    print("showing results for " + subno1choice)
+    time.sleep(2)
+    mess = "<html><body>" + updatedlist + "</body></html"#basic html code
+
+    f.write(mess) #writing to the html file
+    f.close()
+    webbrowser.open_new_tab("index.html")
+
+
+
+
+
+
+
+
+
+
+
+
+    return
+def choice4(filename):
+    x = 0
+    file_in = open(filename)
+    subno1choice = input("1st piece of data,\n").lower()#checking for availability in three inputs in a line.
+    subno2choice = input("2d piece of data,\n").lower()
+    subno3choice = input("3d piece of data,\n").lower()
+    for line in file_in:
+        if ((subno2choice in line) and (subno1choice in line)):#if the two are in the line, print it because it is close enough.
+            if (subno3choice) in line and (subno2choice) in line and (subno3choice):#print the one with all three in the choice.
+                print("we found a " + line)
+                time.sleep(1)
+                x = 1
+            else:
+                print("we found a "+line)
+                time.sleep(1)
+                x = 1
+    if x != 1:
+        print("no results were found, check your inputs.")
+        time.sleep(2)
+        # if there are no matches.
+        return
+
+    return
+def choice5(filename):
+    file_in = open(filename, 'a')#opening with append mode.
+    fileinput = input("What do you want to add to the file").lower() #input for asking what the user what exactly they want to add to the file
+    file_in.write("\n" + "," + fileinput + ",")
+    print("add sucessful!")
+    time.sleep(2)
+    file_in.close()
+
+    return
+def choice6(filename):
+    foot = open("temp.csv", "w+")#clearing a tempfile.
+    foot.close()
+
+    file_in = open(filename)#opening file.
+
+    temp = open("temp.csv", "a")
+
+    subno1choice = input("1st piece of data\n").lower()
+    subno2choice = input("2d piece of data,\n").lower()#same search inputs as #4
+    subno3choice = input("3d piece of data,\n").lower()
+    tempchoice = "true"
+    for line in file_in:
+
+        if ((subno2choice in line) and (subno1choice in line)):
+            if (subno3choice) in line and (subno2choice) in line and (subno3choice):#same method as 4
+                linestored = line
+    try:
+        x = input("Do you wanna delete or replace " + linestored + "?").lower() #another input
+        if x == "replace":
+            inputs = input("what do you want to replace it with?")#asking for the actual replacement.
+            print("replace sucessful")#notification
+        if x == "delete":
+            print("delete sucessful")#notification
+
+        if x == "delete" or x == "replace":
+            file_in.seek(0)#putting the file scan back at the top.
+            for line in file_in:
+
+                if line == linestored:
+                    if x == "replace":
+                        temp.write(str("," + inputs + ",\n"))#writing the replacement to the temp file if there is a match
+                        continue
+                else:
+                    temp.write(line)#if it is not a match, write it out normally.
+
+            temp.close()
+        else:
+
+            print("bad input")
+            time.sleep(2)
+    except:
+
+        print("no result found")
+        time.sleep(2)
+
+    file_in2 = open(filename, "a")#opening the text file
+    temp = open("temp.csv", "r")#opening the temp file
+    x = 0
+    for line in temp:
+        if x == 0:#transfering temp file code to text file.
+            eraser2 = open(filename, "w+")#erasing the file.
+            eraser2.close
+            x = x + 1
+        file_in2.write(line)
+
+    eraser = open("temp.html", "w+")#erasing the temp file
+    eraser.close()
+    time.sleep(2)
+    return
+
+
+def main():
+
+
+        true = "true"
+        angry = 0 #little easter egg counter for 2 wrong inputs.
+        x = "true"
+        while x == "true": #infinite loop
+            try:
+                if true == "true":
+                    filename = input("please enter the file name (thenameofyourfile.txt/csv)")
+                    true = "nottrue"
+                    continue
+                #menu
+                print("Do you want to count data? (Say 1)\n")
+                time.sleep(0.3)
+                print("Do you want to take the percentages? (say 2)\n")
+                time.sleep(0.3)
+                print("Do you want to highlight search information (say 3)\n")
+                time.sleep(0.3)
+                print("Do you want to search for people based off of selective information? (say 4)\n")
+                time.sleep(0.3)
+                print("Do you want to add new data records (say 5)\n")
+                time.sleep(0.3)
+                print("Do you want to delete or replace data records? (say 6)\n")
+                time.sleep(0.3)
+                mainchoice = input("Do you want to re-enter the filename? (say 7)\n").lower() #input for main c hoices
+
+                try:
+                    mainchoice = int(mainchoice) #checking to see if the user entered an integer.
+                except:
+                    if angry == 1:
+
+                        print("why do you do this to me") #firing back at the user if they entered letters.
+                        angry = angry -1
+                        time.sleep(2)
+                        continue
+                    print("I cant read letters!!! >:(\n")
+                    time.sleep(2)
+                    angry = angry + 1
+
+
+
+                    continue
+
+                if mainchoice == 1: #counting things
+                    print(chocie1(filename))
+
+
+                if mainchoice == 2: #taking percentages
+                    print(choice2(filename))
+
+
+                if mainchoice == 3: #highlight searching
+                    print(choice3(filename))
+
+
+                if mainchoice == 4: #searching for people with selective information.
+                    print(choice4(filename))
+
+                if mainchoice == 5: #add new data records
+                    print(choice5(filename))
+
+                if mainchoice == 6: #delete or replace new data records
+                    print(choice6(filename))
+
+                if mainchoice == 7:#going all the way back at the top to re-enter the name of the file.
+                    true = "true"
+                    continue
+
+                if mainchoice > 7: #if the user put in a didget that does not corelate to my functions.
+                    print("You picked a choice that does not exist (◔_◔)")
+                    time.sleep(2)
+            except FileNotFoundError:#if someone enters a file that does not exist.
+                print("you entered a text file that does not exist")
+                time.sleep(2)
+                continue
+if __name__ == '__main__':
+    main()
+
