@@ -1,8 +1,3 @@
-Hi, please use this optimized file meant for the code. (dont copy this part)
-
-
-
-
 benjamin,davie,acciavatti,9,m,lehn,austin,rye,ny,10580,
 samuel,,acciavatti,6,m,dandola,matthew,rye,ny,10580,
 bryce,griffith,agroskin,pk,m,merritt,merritt,greenwich,ct,06830,
