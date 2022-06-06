@@ -3,6 +3,8 @@
 #Version 1.1
 #This file includes: Counting data, taking percentages from data, using HTML outputs to highlight data, finding data based off of 3 inputs.
 # adding to the file, deleting and overwriting based off of finding a line from 3 inputs.
+#includes html outputs
+#errors: none prints after most selections have been completed, on choice 3, it breaks line when it encounters your choice.
 
 
 
