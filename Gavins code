@@ -3,7 +3,7 @@
 #Version 1.1
 #This file includes: Counting data, taking percentages from data, using HTML outputs to highlight data, finding data based off of 3 inputs.
 # adding to the file, deleting and overwriting based off of finding a line from 3 inputs.
-#includes html outputs
+#includes html outputs as a bonus
 #errors: none prints after most selections have been completed, on choice 3, it breaks line when it encounters your choice.
 
 
@@ -353,25 +353,25 @@ def main():
                     continue
 
                 if mainchoice == 1: #counting things
-                    print(chocie1(filename))
+                    (chocie1(filename))
 
 
                 if mainchoice == 2: #taking percentages
-                    print(choice2(filename))
+                    (choice2(filename))
 
 
                 if mainchoice == 3: #highlight searching
-                    print(choice3(filename))
+                    (choice3(filename))
 
 
                 if mainchoice == 4: #searching for people with selective information.
-                    print(choice4(filename))
+                    (choice4(filename))
 
                 if mainchoice == 5: #add new data records
-                    print(choice5(filename))
+                    (choice5(filename))
 
                 if mainchoice == 6: #delete or replace new data records
-                    print(choice6(filename))
+                    (choice6(filename))
 
                 if mainchoice == 7:#going all the way back at the top to re-enter the name of the file.
                     true = "true"
@@ -386,4 +386,3 @@ def main():
                 continue
 if __name__ == '__main__':
     main()
-
